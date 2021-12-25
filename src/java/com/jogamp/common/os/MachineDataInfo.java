@@ -55,15 +55,16 @@ import jogamp.common.os.PlatformPropsImpl;
  * </p>
  */
 public class MachineDataInfo {
-  /*                              arch   os          int, long, float, doubl, ldoubl,  ptr,   page */
-  private final static int[] size_arm_mips_32     =  { 4,    4,     4,     8,      8,    4,   4096 };
-  private final static int[] size_x86_32_unix     =  { 4,    4,     4,     8,     12,    4,   4096 };
-  private final static int[] size_x86_32_macos    =  { 4,    4,     4,     8,     16,    4,   4096 };
-  private final static int[] size_ppc_32_unix     =  { 4,    4,     4,     8,     16,    4,   4096 };
-  private final static int[] size_sparc_32_sunos  =  { 4,    4,     4,     8,     16,    4,   8192 };
-  private final static int[] size_x86_32_windows  =  { 4,    4,     4,     8,     12,    4,   4096 };
-  private final static int[] size_lp64_unix       =  { 4,    8,     4,     8,     16,    8,   4096 };
-  private final static int[] size_x86_64_windows  =  { 4,    4,     4,     8,     16,    8,   4096 };
+  /*                              arch   os          int, long, float, doubl, ldoubl,  ptr,    page */
+  private final static int[] size_arm_mips_32     =  { 4,    4,     4,     8,      8,    4,    4096 };
+  private final static int[] size_x86_32_unix     =  { 4,    4,     4,     8,     12,    4,    4096 };
+  private final static int[] size_x86_32_macos    =  { 4,    4,     4,     8,     16,    4,    4096 };
+  private final static int[] size_ppc_32_unix     =  { 4,    4,     4,     8,     16,    4,    4096 };
+  private final static int[] size_sparc_32_sunos  =  { 4,    4,     4,     8,     16,    4,    8192 };
+  private final static int[] size_x86_32_windows  =  { 4,    4,     4,     8,     12,    4,    4096 };
+  private final static int[] size_lp64_unix       =  { 4,    8,     4,     8,     16,    8,    4096 };
+  private final static int[] size_x86_64_windows  =  { 4,    4,     4,     8,     16,    8,    4096 };
+  private final static int[] size_aarch64_macos  =   { 4,    8,     4,     8,      8,    8,   16384 };
 
   /*                               arch   os          i8, i16, i32, i64, int, long, float, doubl, ldoubl, ptr */
   private final static int[] align_arm_mips_32    =  { 1,   2,   4,   8,   4,    4,     4,     8,      8,   4 };
@@ -74,6 +75,7 @@ public class MachineDataInfo {
   private final static int[] align_x86_32_windows =  { 1,   2,   4,   8,   4,    4,     4,     8,      4,   4 };
   private final static int[] align_lp64_unix      =  { 1,   2,   4,   8,   4,    8,     4,     8,     16,   8 };
   private final static int[] align_x86_64_windows =  { 1,   2,   4,   8,   4,    4,     4,     8,     16,   8 };
+  private final static int[] align_aarch64_macos  =  { 1,   2,   4,   8,   4,    8,     4,     8,      8,   8 };
 
   /**
    * Static enumeration of {@link MachineDataInfo} instances
@@ -109,8 +111,10 @@ public class MachineDataInfo {
       /** LP64 Unix, e.g.: {@link Platform.CPUType#X86_64} Unix, {@link Platform.CPUType#ARM64} EABI, {@link Platform.CPUType#PPC64} Unix, .. */
       LP64_UNIX(      size_lp64_unix,    align_lp64_unix),
       /** {@link Platform.CPUType#X86_64} Windows */
-      X86_64_WINDOWS( size_x86_64_windows, align_x86_64_windows);
-      // 8
+      X86_64_WINDOWS( size_x86_64_windows, align_x86_64_windows),
+      /** {@link Platform.CPUType#ARMv8_A} macOS */
+      AARCH64_MACOS( size_aarch64_macos, align_aarch64_macos);
+      // 9
 
       public final MachineDataInfo md;
 

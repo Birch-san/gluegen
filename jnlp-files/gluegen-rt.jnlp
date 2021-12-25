@@ -67,6 +67,9 @@
     <resources os="Mac OS X" arch="x86_64">
       <nativelib href = "jar/gluegen-rt-natives-macosx-universal.jar" />
     </resources>
+    <resources os="Mac OS X" arch="arm64e">
+      <nativelib href = "jar/gluegen-rt-natives-macosx-universal.jar" />
+    </resources>
 
   <component-desc />
 </jnlp>

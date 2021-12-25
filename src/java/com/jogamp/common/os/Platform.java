@@ -160,7 +160,7 @@ public class Platform extends PlatformPropsImpl {
             } else if( cpuABILower.equals("ia64") ) {
                 return IA64;
             } else if( cpuABILower.equals("aarch64") ) {
-                return ARM64;
+                return ARMv8_A;
             } else if( cpuABILower.startsWith("arm") ) {
                 if(        cpuABILower.equals("armv8-a")   ||
                            cpuABILower.equals("arm-v8-a") ||
